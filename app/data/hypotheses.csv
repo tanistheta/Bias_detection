@@ -1,0 +1,8 @@
+id,prediction,result,supported
+H1,100 labelled people beat every demographic-free method,14.5% vs at most 7.3%,True
+H2,400 people reach 75% of the full-knowledge (oracle) reduction,68% of the oracle,False
+H3,Choosing rows by outcome is no better than random (<= 3 points),largest advantage +1.1 points,True
+H4,"When the group discloses 3x less often, results get worse","-3.0 points at n=100, -5.1 at n=400",True
+H5,Tuning on the labelled rows does not beat the AUC-only rule,largest gain -3.7 points,True
+H6,A direction check (cosine) predicts harmful fixes,AUROC 0.58 at n=100 (needed > 0.70),False
+H7,Results hold for a neural network,7.9% vs ARL 7.8% with only 2-5 seeds per target: inconclusive,

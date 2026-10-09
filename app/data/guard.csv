@@ -1,0 +1,5 @@
+family,nlab,harm,harm_guarded,applied,red,red_guarded
+US census (round 1),100,0.26,0.0733333,0.353333,6.76039,7.59908
+US census (round 1),400,0.18,0.00666667,0.233333,18.7884,15.5764
+US census (round 2),100,0.286667,0.106667,0.366667,1.48319,3.19049
+US census (round 2),400,0.226667,0.0466667,0.2,6.038,4.34074
