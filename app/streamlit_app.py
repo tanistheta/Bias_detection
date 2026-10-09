@@ -449,8 +449,6 @@ def page_method():
         "**About this app**\n"
         "- Live pages call the study's code (fairlab, scripts/exp_main.py, scripts/exp_audit.py). For seeds 0–29 "
         "they reproduce the stored rows exactly; automated tests check this.\n"
-        "- The audit model uses l2 = 1e-4, the setting that produced results/e1_audit.csv (the other experiments "
-        "use 1e-3).\n"
         "- The US census data needs a large download, so it appears only in the 30-seed results.")
     st.markdown(f"Code and raw results: [{REPO_URL}]({REPO_URL})")
 

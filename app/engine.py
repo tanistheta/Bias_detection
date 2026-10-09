@@ -27,7 +27,6 @@ from scripts.exp_main import DF, MUS, NS, splits  # noqa: E402
 
 warnings.filterwarnings("ignore")
 
-AUDIT_L2 = 1e-4  # results/e1_audit.csv was produced before l2 was frozen at 1e-3 (it matches only with 1e-4)
 GUARD = 0.08  # gap guard: correct only if the proxy-estimated gap is at least this large
 BUDGET = 0.01  # T1 tuning: strongest penalty whose pool AUC stays within this of the unconstrained model
 HARM = 0.01  # a correction "harms" if the test EO gap rises by more than this
@@ -94,8 +93,8 @@ def label_rng(seed, n, pool_size, draw=0):
 def audit(run):
     """E1 for one seed: every candidate group (observed columns split at the median) plus the hidden group,
     ranked by the unconstrained model's equalized-odds gap on the test split."""
-    m = FairLR(l2=AUDIT_L2).fit(run.Xtr, run.ytr)
-    p = m.predict_proba(run.Xte)
+    m = run.m0
+    p = run.p0te
     s = np.log(p / (1 - p))
     thr = rate_threshold(p, run.base)
     coef = np.abs(m.th[:-1])
