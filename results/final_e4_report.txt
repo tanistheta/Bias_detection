@@ -1,0 +1,45 @@
+pairs: 17 rows: 1310
+
+=== n=100: AUROC(-cos -> harm) = 0.580; harm rate 0.191
+                    red  red_g  harm  harm_g  applied   cos
+t                                                          
+adult-race         1.76   2.30  0.40    0.30     0.80  0.50
+adult-sex         47.58  44.23  0.03    0.03     0.90  0.69
+bank-age          -7.89  -2.32  0.50    0.40     0.80  0.68
+bank-marital       2.54  -7.47  0.20    0.10     0.50  0.30
+compas-race        9.14   9.14  0.07    0.07     1.00  0.94
+compas-sex         4.98   2.67  0.27    0.27     0.80  0.43
+credit-age        19.64  13.42  0.07    0.07     0.71  0.44
+credit-sex         2.39  -0.65  0.20    0.20     0.80  0.56
+diabetes-race    -15.66 -14.44  0.40    0.30     0.70  0.46
+diabetes-sex      -4.50  -1.02  0.20    0.10     0.50  0.16
+dutch-sex         -5.03  -7.44  0.27    0.17     0.53  0.11
+german-age         7.55   6.76  0.20    0.20     0.83  0.67
+german-sex        29.93  22.97  0.30    0.20     0.70  0.62
+law-race          30.25  30.25  0.00    0.00     1.00  0.92
+law-sex           -4.17  -0.94  0.30    0.10     0.30 -0.10
+oulad-disability   1.77   3.98  0.18    0.07     0.82  0.55
+oulad-sex         -0.28   0.41  0.50    0.30     0.60  0.13
+mean reduction unguarded 7.1% -> guarded 6.0%  (kept 85%); harm rate 0.240 -> 0.169
+H6: NOT SUPPORTED (AUROC>0.70: False; harm cut: True; kept>=80%: True)
+
+=== n=400: AUROC(-cos -> harm) = 0.624; harm rate 0.159
+                    red  red_g  harm  harm_g  applied   cos
+t                                                          
+adult-race         5.83  -5.83  0.30    0.20     0.50  0.45
+adult-sex         55.46  47.94  0.00    0.00     0.90  0.82
+bank-age           4.04   3.16  0.30    0.20     0.70  0.29
+bank-marital      11.10  -0.15  0.20    0.10     0.50  0.19
+compas-race       11.31  11.31  0.00    0.00     1.00  0.98
+compas-sex        12.16  11.11  0.17    0.17     0.97  0.88
+credit-age        35.60  35.60  0.00    0.00     1.00  0.76
+credit-sex        14.32   8.20  0.10    0.00     0.60  0.36
+diabetes-race    -14.09  -4.41  0.30    0.10     0.40  0.52
+diabetes-sex      17.70  16.47  0.00    0.00     0.90  0.74
+dutch-sex        -26.26 -18.22  0.57    0.33     0.57  0.24
+law-race          30.89  30.89  0.00    0.00     1.00  0.99
+law-sex          -22.01  -4.70  0.40    0.20     0.70  0.71
+oulad-disability  10.24   8.41  0.10    0.10     0.80  0.58
+oulad-sex        -26.09 -35.39  0.50    0.40     0.60  0.28
+mean reduction unguarded 8.0% -> guarded 7.0%  (kept 87%); harm rate 0.196 -> 0.120
+H6: NOT SUPPORTED (AUROC>0.70: False; harm cut: True; kept>=80%: True)

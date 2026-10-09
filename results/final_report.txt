@@ -1,0 +1,92 @@
+=== EO-gap reduction %, T1, AUC budget 0.01 (mean over 30 seeds)
+t                         adult-sex  compas-race  compas-sex  credit-age  dutch-sex  german-age  law-race  oulad-disability  MEAN  MEDIAN
+arm                                                                                                                                      
+arl                            -2.4          5.7         0.3        -4.5        6.6        -2.4       3.5               0.0   0.9     0.2
+cvar                            6.7         -0.7         1.6        -0.9        3.8         0.2       1.2              -0.4   1.4     0.7
+jtt                            -9.8         -4.0         2.0        -5.9       -5.2         3.3      17.8             -12.2  -1.8    -4.6
+cluster_rw                     28.4          3.9         3.3        31.0      -15.5         9.8       0.8              -3.6   7.3     3.6
+proxy[random] n=25             32.3          4.6        14.2        14.9      -11.1         9.8      17.7               1.8  10.5    12.0
+proxy[random] n=50             39.8          4.0         7.6        17.0       -6.4         3.0      22.3              -5.4  10.2     5.8
+proxy[random] n=100            47.6          9.1         5.0        19.6       -5.0         7.6      29.9               2.1  14.5     8.3
+proxy[random] n=200            51.0          7.2        12.2        27.7      -22.2         NaN      28.5               0.7  15.0    12.2
+proxy[random] n=400            55.5         11.3        12.2        35.6      -26.3         NaN      30.9              10.2  18.5    12.2
+proxy[strat_y] n=25            33.8          8.0        11.2        14.0       -7.1         8.6      19.0              -2.7  10.6     9.9
+proxy[strat_y] n=50            40.3          4.8        13.7        14.1       -6.7         3.2      19.4               1.7  11.3     9.3
+proxy[strat_y] n=100           49.7          7.9         5.7        18.4      -13.0        -1.7      30.2              -4.6  11.6     6.8
+proxy[strat_y] n=200           53.0          8.3        10.1        29.0      -21.9         NaN      30.4               2.1  15.9    10.1
+proxy[strat_y] n=400           54.9          9.0         9.8        29.3      -33.5         NaN      32.6               6.9  15.6     9.8
+proxy[random_mnar] n=25        28.8          5.0        12.3         7.9       -9.7         8.2      15.5              -2.0   8.3     8.1
+proxy[random_mnar] n=50        17.5          7.9         8.0        14.3       -7.4        -0.8      20.2              -0.5   7.4     8.0
+proxy[random_mnar] n=100       33.4          3.7        11.8        19.5       -9.0         8.2      24.0               0.6  11.5    10.0
+proxy[random_mnar] n=200       38.7          4.9        14.2        20.3       -4.1         NaN      24.7               2.2  14.4    14.2
+proxy[random_mnar] n=400       40.0          6.2        11.8        27.6      -24.0         NaN      31.8              -0.1  13.3    11.8
+proxy_confident n=100          31.1          9.8         0.0         1.1       -4.6         0.0       7.3               3.3   6.0     2.2
+proxy_confident n=400          19.5          6.6         0.9        -2.1      -21.2         NaN       0.0               0.0   0.5     0.0
+related_feats n=100             5.3          3.0         5.2         8.9       -1.6         0.8       3.0              -0.1   3.1     3.0
+related_feats n=400             7.8          2.1         2.9        12.1        1.0         NaN       2.7               3.8   4.6     2.9
+oracle                         50.6         11.4        10.6        34.1       19.0         1.9      31.7              31.6  23.9    25.3
+
+=== Significance (one-sided Wilcoxon vs ERM, Holm over targets) + 95% bootstrap CI
+t                    adult-sex  compas-race  compas-sex  credit-age  dutch-sex  german-age  law-race  oulad-disability
+arm                                                                                                                   
+proxy[random] n=100      0.000        0.000       0.171         0.0      0.786       0.116     0.000             0.734
+proxy[random] n=400      0.000        0.000       0.002         0.0      1.000         NaN     0.000             0.001
+oracle                   0.000        0.000       0.017         0.0      0.000       0.175     0.000             0.000
+arl                      1.000        0.245       1.000         1.0      0.760       1.000     0.000             1.000
+cvar                     0.002        1.000       0.319         1.0      0.205       1.000     0.319             1.000
+jtt                      1.000        1.000       1.000         1.0      1.000       1.000     0.000             1.000
+cluster_rw               0.000        0.298       0.809         0.0      1.000       0.046     0.809             1.000
+significant targets (p_holm<0.05): {'arl': 1, 'cluster_rw': 3, 'cvar': 1, 'jtt': 1, 'oracle': 7, 'proxy[random] n=100': 4, 'proxy[random] n=400': 6}
+                    t                  arm  eo_red  ci_lo  ci_hi  dauc   eo0
+4           adult-sex               oracle   50.61  46.36  53.95 -0.47  0.16
+12          adult-sex  proxy[random] n=100   47.58  39.24  55.27 -0.61  0.16
+34        compas-race               oracle   11.39   8.37  14.42 -0.45  0.25
+42        compas-race  proxy[random] n=100    9.14   5.53  13.13 -0.51  0.25
+64         compas-sex               oracle   10.57   3.66  17.26 -0.57  0.14
+72         compas-sex  proxy[random] n=100    4.98  -0.55  11.03 -0.41  0.14
+94         credit-age               oracle   34.08  28.66  39.57 -0.81  0.17
+102        credit-age  proxy[random] n=100   19.56  10.92  26.70 -0.73  0.17
+124         dutch-sex               oracle   18.99  12.55  24.69 -0.13  0.05
+132         dutch-sex  proxy[random] n=100   -5.03 -16.97   6.71 -0.56  0.05
+154        german-age               oracle    1.95 -10.85  12.99 -0.57  0.17
+160        german-age  proxy[random] n=100    7.55  -3.95  16.37 -0.27  0.17
+174          law-race               oracle   31.70  26.50  37.83 -0.62  0.39
+182          law-race  proxy[random] n=100   29.85  24.74  34.94 -0.75  0.39
+204  oulad-disability               oracle   31.61  23.62  39.53 -0.66  0.11
+212  oulad-disability  proxy[random] n=100    2.15  -4.20   8.39 -0.55  0.11
+
+=== H1: proxy n=100 mean 14.5 vs DF {'arl': np.float64(0.9), 'cvar': np.float64(1.4), 'jtt': np.float64(-1.8), 'cluster_rw': np.float64(7.3)} -> SUPPORTED
+=== H2: proxy n=400 / oracle = 0.68 -> NOT SUPPORTED
+=== H3: strat_y - random by n {25: np.float64(0.1), 50: np.float64(1.1), 100: np.float64(-2.9), 200: np.float64(0.8), 400: np.float64(-2.9)} -> SUPPORTED
+=== H4: mnar - random {100: np.float64(-3.0), 400: np.float64(-5.1)} -> SUPPORTED
+=== H5: T2 - T1 at n<=100 {25: np.float64(-4.0), 50: np.float64(-3.7), 100: np.float64(-5.3)} -> SUPPORTED (T2 not better)
+
+=== sensitivity: mean reduction by budget (T1)
+budget               0.005  0.010  0.020
+arm                                     
+proxy[random] n=100   11.4   14.5   18.5
+proxy[random] n=400   15.5   18.5   21.7
+oracle                17.4   23.9   34.2
+arl                    1.2    0.9    1.0
+cvar                   1.6    1.4    1.4
+jtt                   -0.3   -1.8   -1.6
+cluster_rw             5.6    7.3    9.5
+
+=== E5: mean abs error of gap estimate (true gap in parentheses)
+       err_naive  err_proxy  bias_naive  bias_proxy
+nlab                                               
+25.0       0.284      0.093       0.234      -0.001
+50.0       0.226      0.097       0.174      -0.004
+100.0      0.163      0.072       0.128      -0.000
+200.0      0.107      0.061       0.065      -0.007
+400.0      0.078      0.053       0.038      -0.002
+                  true_eo  err_naive  err_proxy
+t                                              
+adult-sex           0.155      0.163      0.050
+compas-race         0.250      0.110      0.071
+compas-sex          0.144      0.157      0.073
+credit-age          0.167      0.195      0.086
+dutch-sex           0.048      0.120      0.060
+german-age          0.175      0.219      0.099
+law-race            0.391      0.187      0.103
+oulad-disability    0.111      0.271      0.076

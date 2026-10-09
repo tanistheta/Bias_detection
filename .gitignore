@@ -1,0 +1,6 @@
+
+.venv/
+data/acs/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
