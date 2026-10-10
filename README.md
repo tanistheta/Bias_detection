@@ -22,6 +22,7 @@ Department of Computer Science and Engineering, Manipal University Jaipur
 [Findings](#-what-we-found) ·
 [How we tested](#-how-we-tested-it) ·
 [What did not work](#-what-did-not-work) ·
+[Try the app](#-try-it-in-your-browser) ·
 [Run it yourself](#-run-it-yourself) ·
 [Glossary](#-glossary)
 
@@ -254,6 +255,28 @@ We report these openly. They make the work more trustworthy, not less.
 
 ---
 
+## 🚀 Try it in your browser
+
+The **Hidden-Group Bias Lab** reruns the study's own code for one seed at a time. Pick a dataset and a hidden group, choose how many people reveal their group, and watch the three findings happen.
+
+| Page | What you see |
+|---|---|
+| 🔍 Find | Every group an auditor could form from the model's inputs, ranked by the model's gap, and where the hidden group lands |
+| 📏 Measure | The true gap against the labelled-only estimate and the guesser, over 30 different sets of people |
+| 🔧 Fix | The correction with the 0.08 safety rule, next to cluster reweighting and the oracle |
+| 📊 30-seed results | The study's tables, rebuilt from `results/` |
+
+Run it locally:
+
+```bash
+pip install -r app/requirements.txt
+streamlit run app/streamlit_app.py
+```
+
+For seeds 0-29 the app reproduces the stored rows of `results/` exactly; `pytest -q` checks this (`tests/test_app.py`).
+
+---
+
 ## 💻 Run it yourself
 
 <details>
@@ -262,8 +285,8 @@ We report these openly. They make the work more trustworthy, not less.
 <br>
 
 ```bash
-git clone https://github.com/tanistheta/fairlab.git   # update with the final repo URL
-cd fairlab
+git clone https://github.com/tanistheta/Bias_detection.git
+cd Bias_detection
 python -m venv .venv && source .venv/bin/activate     # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 ```
@@ -273,7 +296,7 @@ pip install -r requirements.txt
 | Audit ranking (Finding 1) | `python scripts/exp_audit.py 0 30 results/e1_audit.csv` | minutes |
 | Main experiment (Findings 2, 3) | `python scripts/exp_main.py 0 30 results/e2_x.csv law:race,adult:sex,...` | hours |
 | Census data | `python scripts/exp_main.py 0 30 results/acs_a.csv acs_CA_2018_ACSIncome:race,...` | hours, downloads data once |
-| Analyse everything | `python scripts/analyze_final.py` · `python scripts/analyze_acs.py` · `python scripts/round2.py` | seconds |
+| Analyse everything | `python scripts/analyze_final.py` · `python scripts/analyze_e1.py` · `python scripts/analyze_acs.py` · `python scripts/round2.py` | seconds |
 | Rebuild these charts | `python scripts/make_readme_figures.py` | seconds |
 
 Full census instructions are in [`RUN_ACS.md`](RUN_ACS.md); the frozen plan and logged deviations are in [`PREREGISTRATION.md`](PREREGISTRATION.md).
@@ -295,6 +318,8 @@ fairlab/
 │   ├── analysis.py      tuning rules and statistics
 │   └── metrics.py       fairness metrics
 ├── scripts/             one script per experiment + analysis + figures
+├── app/                 the web app (Streamlit) and the summaries it shows
+├── tests/               checks that the app reproduces results/
 ├── results/             every raw run, as CSV
 ├── docs/figures/        the charts in this README (light + dark)
 ├── PREREGISTRATION.md   predictions written before the final runs
