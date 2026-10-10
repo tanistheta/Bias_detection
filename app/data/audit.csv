@@ -1,0 +1,23 @@
+family,target,runs,hidden_first,median_rank,candidates,hidden_gap
+Classic datasets,adult-race,30,0,17,18,0.0596179
+Classic datasets,adult-sex,30,0,14,18,0.155134
+Classic datasets,bank-age,30,0,20.5,25,0.0897289
+Classic datasets,bank-marital,30,0,22,25,0.063772
+Classic datasets,compas-race,30,0,5,5,0.250055
+Classic datasets,compas-sex,30,0,5,5,0.143994
+Classic datasets,credit-age,30,0,12,22,0.167322
+Classic datasets,credit-sex,30,0,22,22,0.0388244
+Classic datasets,diabetes-race,30,0,28,33,0.0369902
+Classic datasets,diabetes-sex,30,0,21,33,0.0636257
+Classic datasets,dutch-sex,30,0,15,19,0.0484492
+Classic datasets,german-age,30,0,16.5,37,0.174905
+Classic datasets,german-sex,30,0,26.5,37,0.11838
+Classic datasets,law-race,30,0,6,8,0.391406
+Classic datasets,law-sex,30,0,8,8,0.0482887
+Classic datasets,oulad-disability,30,0,16,24,0.110801
+Classic datasets,oulad-sex,30,0,21,25,0.0467961
+US census (round 1),CA income-race,30,0,19,20,0.0560446
+US census (round 1),FL income-race,30,0,16,21,0.10762
+US census (round 1),NY income-sex,30,0,22,22,0.0223689
+US census (round 1),PA employment-sex,30,0,17,20,0.0546003
+US census (round 1),TX income-race,30,0,18,20,0.0568969
